@@ -4,5 +4,11 @@
   "main": "electron.js",
   "repository": "https://github.com/Divoolej/OB-Wan-electron",
   "author": "Wojciech 'Divoolej' Olejnik",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
 }

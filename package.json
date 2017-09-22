@@ -1,6 +1,6 @@
 {
   "name": "ob-wan-electron",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "main.js",
   "repository": "https://github.com/Divoolej/OB-Wan-electron",
   "author": "Wojciech 'Divoolej' Olejnik",

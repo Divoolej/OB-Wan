@@ -1,0 +1,10 @@
+$Rack_border-size: 8px;
+$Rack_border-color: $gray;
+
+.Rack {
+  display: flex;
+  width: 784px - 2 * $Rack_border-size;
+  height: 210px - 2 * $Rack_border-size;
+  border: $Rack_border-size solid $Rack_border-color;
+  border-top: 0;
+}

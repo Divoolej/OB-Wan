@@ -1,1 +1,10 @@
+@import 'settings/color_variables';
 
+@import 'components/App';
+@import 'components/KnobsPanel.scss';
+@import 'components/Rack.scss';
+@import 'components/Settings.scss';
+
+body {
+  margin: 0;
+}

@@ -2,13 +2,15 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
+const { default: installExtension, REDUX_DEVTOOLS } = require('electron-devtools-installer')
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 1000, height: 600})
+  win = new BrowserWindow({width: 1280, height: 600})
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -16,6 +18,11 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+  // Install Redux DevTools
+  installExtension(REDUX_DEVTOOLS)
+    .then((name) => console.log(`Added Extension:  ${name}`))
+    .catch((err) => console.log('An error occurred: ', err));
 
   // Open the DevTools.
   win.webContents.openDevTools()

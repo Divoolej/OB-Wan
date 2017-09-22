@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron .",
     "build": "webpack",
-    "watch": "NODE_ENV=development webpack-dev-server --inline --watch --hot renderer.js"
+    "watch": "NODE_ENV=development webpack-dev-server --inline --watch --hot js/index.jsx"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -16,6 +16,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
+    "electron-devtools-installer": "^2.2.0",
+    "electron-react-devtools": "^0.4.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
@@ -26,6 +28,8 @@
   "dependencies": {
     "electron": "^1.7.6",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   }
 }

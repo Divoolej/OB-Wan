@@ -1,0 +1,9 @@
+$Settings_border-size: 8px;
+$Settings_border-color: $gray;
+
+.Settings {
+  display: inline-flex;
+  width: 240px - 2 * $Settings_border-size;
+  height: 140px - 2 * $Settings_border-size;
+  border: $Settings_border-size solid $Settings_border-color;
+}

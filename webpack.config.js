@@ -7,7 +7,7 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-  entry: './renderer.js',
+  entry: './js/index.jsx',
   output: {
     path: path.resolve('build'),
     filename: 'renderer_bundle.js',

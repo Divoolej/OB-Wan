@@ -1,0 +1,9 @@
+$App_border-size: 8px;
+$App_border-color: $brown;
+
+.App {
+  width: 800px - 2 * $App_border-size;
+  height: 600px - 2 * $App_border-size;
+  border: $App_border-size solid $App_border-color;
+  background-color: $beige;
+}

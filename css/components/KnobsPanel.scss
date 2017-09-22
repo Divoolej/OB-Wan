@@ -1,0 +1,10 @@
+$KnobsPanel_border-size: 8px;
+$KnobsPanel_border-color: $gray;
+
+.KnobsPanel {
+  display: inline-flex;
+  width: 552px - 2 * $KnobsPanel_border-size;
+  height: 140px - 2 * $KnobsPanel_border-size;
+  border: $KnobsPanel_border-size solid $KnobsPanel_border-color;
+  border-left: 0;
+}

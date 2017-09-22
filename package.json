@@ -1,0 +1,8 @@
+{
+  "name": "ob-wan-electron",
+  "version": "0.0.0",
+  "main": "electron.js",
+  "repository": "https://github.com/Divoolej/OB-Wan-electron",
+  "author": "Wojciech 'Divoolej' Olejnik",
+  "license": "MIT"
+}

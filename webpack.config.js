@@ -20,7 +20,11 @@ module.exports = {
       { test: /\.scss$/, use: extractSass.extract({
         use: ['css-loader', 'sass-loader'],
         fallback: 'style-loader',
-      })}
+      })},
+      { test: /\.css$/, use: extractSass.extract({
+        use: ['css-loader'],
+        fallback: 'style-loader',
+      })},
     ]
   },
   plugins: [

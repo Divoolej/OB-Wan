@@ -6,6 +6,7 @@ import { createStore } from 'redux'
 import reducers from './reducers'
 import App from './components/App.jsx'
 
+import 'react-select/dist/react-select.css';
 import '../css/application.scss'
 
 let store = createStore(

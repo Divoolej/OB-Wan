@@ -6,15 +6,17 @@
   "author": "Wojciech 'Divoolej' Olejnik",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && electron .",
-    "build": "webpack"
+    "start": "electron .",
+    "build": "webpack",
+    "watch": "webpack-dev-server --inline --watch --hot renderer.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
     "electron": "^1.7.6",

@@ -6,4 +6,6 @@ $App_border-color: $brown;
   height: 600px - 2 * $App_border-size;
   border: $App_border-size solid $App_border-color;
   background-color: $beige;
+  font-family: 'pokemon-font', monospace;
+  font-size: 9px;
 }

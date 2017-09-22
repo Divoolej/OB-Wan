@@ -6,4 +6,37 @@ $Settings_border-color: $gray;
   width: 240px - 2 * $Settings_border-size;
   height: 140px - 2 * $Settings_border-size;
   border: $Settings_border-size solid $Settings_border-color;
+  vertical-align: top;
+
+  .row {
+    display: inline-flex;
+    width: 100%;
+    height: 30px;
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+
+    .label {
+      margin-right: 2px;
+    }
+
+    .Select {
+      display: inline-flex;
+      height: 23px;
+      width: 110px;
+      margin-left: 2px;
+
+      &-control {
+        height: 23px;
+      }
+
+      &-value {
+        line-height: 23px;
+      }
+
+      &-input {
+        height: 23px;
+      }
+    }
+  }
 }

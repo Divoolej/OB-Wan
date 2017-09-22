@@ -1,10 +1,24 @@
 @import 'settings/color_variables';
+@import 'settings/mixins';
 
 @import 'components/App';
 @import 'components/KnobsPanel.scss';
 @import 'components/Rack.scss';
 @import 'components/Settings.scss';
 
+html {
+  @include sizing(100%, 100%);
+}
+
 body {
+  @include sizing(100%, 100%);
+  display: flex;
   margin: 0;
+}
+
+#root {
+  @include sizing(100%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -3,11 +3,13 @@
 @import 'settings/z-index_variables';
 @import 'settings/typography';
 
+@import 'components/Select';
 @import 'components/App';
 @import 'components/KnobsPanel';
 @import 'components/Rack';
 @import 'components/Settings';
 @import 'components/Error';
+@import 'components/instrument/InstrumentHeader';
 
 html {
   @include sizing(100%, 100%);

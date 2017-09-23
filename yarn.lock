@@ -3763,6 +3763,10 @@ rc@^1.1.2, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-canvas-knob@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-canvas-knob/-/react-canvas-knob-0.4.0.tgz#fc0276adb8a9cf4e6ed96c611060429260826b0a"
+
 react-dom@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
@@ -4524,6 +4528,10 @@ to-arraybuffer@^1.0.0:
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+
+tone@^0.11.11:
+  version "0.11.11"
+  resolved "https://registry.yarnpkg.com/tone/-/tone-0.11.11.tgz#7af8521eba6df84a910d457485a13705f8c824e5"
 
 tough-cookie@~2.3.2:
   version "2.3.3"

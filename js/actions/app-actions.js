@@ -1,6 +1,6 @@
-export const throwError = (message) => ({
+export const throwError = (error) => ({
   type: 'APP_ADD_ERROR',
-  payload: { message },
+  payload: { message: error.message },
 })
 
 export const clearErrors = () => ({

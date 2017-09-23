@@ -5,16 +5,16 @@ $Settings_border-color: $color-gray;
   display: inline-flex;
   width: 240px - 2 * $Settings_border-size;
   height: 140px - 2 * $Settings_border-size;
-  border: $Settings_border-size solid $Settings_border-color;
   vertical-align: top;
+  border: $Settings_border-size solid $Settings_border-color;
 
   .row {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 30px;
     padding: 2px;
-    align-items: center;
-    justify-content: center;
 
     .label {
       margin-right: 2px;
@@ -22,8 +22,8 @@ $Settings_border-color: $color-gray;
 
     .Select {
       display: inline-flex;
-      height: 23px;
       width: 110px;
+      height: 23px;
       margin-left: 2px;
 
       &-control {

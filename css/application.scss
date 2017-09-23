@@ -10,6 +10,7 @@
 @import 'components/Settings';
 @import 'components/Error';
 @import 'components/instrument/InstrumentHeader';
+@import 'components/instrument/Synth';
 
 html {
   @include sizing(100%, 100%);

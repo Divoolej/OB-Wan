@@ -2,8 +2,9 @@ import Tone from 'tone'
 
 const initialState = {
   enabled: true,
-  type: 'Synth',
-  synth: new Tone.Synth().toMaster(),
+  type: 'PolySynth',
+  polySynthVoice: 'Synth',
+  synth: new Tone.PolySynth().toMaster(),
   lastPlayedNote: null,
 }
 
@@ -15,15 +16,27 @@ const instrument = (state = initialState, action) => {
         enabled: !state.enabled,
       }
     case 'INSTRUMENT_CHANGE_INSTRUMENT_TYPE':
+      if (state.type === action.payload.type) { return state }
       state.synth.dispose()
       return {
         ...state,
         type: action.payload.type,
-        synth: action.payload.synth.toMaster(),
+        polySynthVoice: action.payload.polySynthVoice,
+        synth: action.payload.synth,
+      }
+    case 'INSTRUMENT_CHANGE_POLY_SYNTH_VOICE':
+      if (state.type !== 'PolySynth' || state.polySynthVoice === action.payload.polySynthVoice) {
+        return state
+      }
+      state.synth.dispose()
+      return {
+        ...state,
+        polySynthVoice: action.payload.polySynthVoice,
+        synth: action.payload.synth,
       }
     case 'INSTRUMENT_NOTE_ON':
       if (!state.enabled) { return state }
-      state.synth.triggerAttack(action.payload.note, '+0', action.payload.velocity || 1)
+      state.synth.triggerAttack(action.payload.note, '+0.025', action.payload.velocity || 1)
       return {
         ...state,
         lastPlayedNote: action.payload.note,

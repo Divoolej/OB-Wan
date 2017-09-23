@@ -1,5 +1,6 @@
 const initialState = {
   availableInstruments: ['Synth', 'PolySynth', 'MonoSynth'],
+  availableVoices: ['Synth', 'MonoSynth'],
 }
 
 const settings = (state = initialState, action) => {

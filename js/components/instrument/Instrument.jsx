@@ -2,26 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import InstrumentHeader from './InstrumentHeader.jsx'
+import PolySynth from './PolySynth.jsx'
 import Synth from './Synth.jsx'
 
-const InstrumentComponent = ({ type }) => {
-  const renderSynthesizer = () => {
-    switch (type) {
-      case 'Synth':
-        return <Synth />
-    }
+const renderSynthesizer = (type) => {
+  switch (type) {
+    case 'Synth':
+      return <Synth />
+    case 'PolySynth':
+      return <PolySynth />
   }
+}
 
+const InstrumentComponent = ({ type }) => {
   return(
     <div className="Instrument">
       <InstrumentHeader />
-      {renderSynthesizer()}
+      {renderSynthesizer(type)}
     </div>
   )
 }
 
 InstrumentComponent.propTypes = {
-
+  type: PropTypes.string.isRequired,
 }
 
 import { connect } from 'react-redux'
@@ -30,8 +33,6 @@ const mapStateToProps = (state) => ({
   type: state.rack.instrument.type,
 })
 
-const actions = {}
-
-const InstrumentContainer = connect(mapStateToProps, actions)(InstrumentComponent)
+const InstrumentContainer = connect(mapStateToProps, null)(InstrumentComponent)
 
 export default InstrumentContainer

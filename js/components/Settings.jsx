@@ -10,7 +10,7 @@ class SettingsComponent extends React.Component {
 
   onInitializeWebMidi = (error) => {
     if (error) {
-      this.props.throwError('Failed to initialize WebMidi: ', error)
+      this.props.onThrowError({ message: `Failed to initialize WebMidi: ${error}` })
     } else {
       this.props.onUpdateMidiInputs(WebMidi.inputs)
     }
@@ -18,12 +18,16 @@ class SettingsComponent extends React.Component {
 
   onSelectMidiInput = (input) => {
     const selectedInput = input.value !== 'NONE' ? WebMidi.getInputByName(input.value) : null
-    this.props.onSelectMidiInput(selectedInput)
+    if (selectedInput !== false) {
+      this.props.onSelectMidiInput(selectedInput)
+    } else {
+      this.props.onThrowError({ message: `Couldn't find ${input.value}. Make sure it is connected and try again.` })
+    }
   }
 
   getOptionsForMidiInputs = () => {
     return this.props.availableMidiInputs
-      .map((input) => ({ value: input.name, label: input.name }))
+      .map(input => ({ value: input.name, label: input.name }))
       .concat({ value: 'NONE', label: 'NONE' })
   }
 

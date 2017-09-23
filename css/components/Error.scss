@@ -1,0 +1,70 @@
+$Error_border-size: 8px;
+$Error_border-color: $color-red;
+$Error_overlay-color: $color-black;
+$Error_background-color: $color-white;
+
+.Error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .overlay {
+    z-index: $zi-errors-overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $Error_overlay-color;
+    opacity: 0.3;
+  }
+
+  .popup {
+    z-index: $zi-errors-popup;
+    width: 280px;
+    height: 130px;
+    padding: 20px;
+    border: $Error_border-size solid $Error_border-color;
+    border-radius: 10px;
+    background-color: $Error_background-color;
+
+    .list {
+      height: 80px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+
+      .dismiss-button {
+        width: 80px;
+        height: 25px;
+        border: 2px solid $color-black;
+        border-radius: 5px;
+        font-family: 'pokemon-font';
+        font-size: 9px;
+        background-color: $color-white;
+
+        &:hover {
+          color: $color-red;
+          border-color: $color-red;
+        }
+
+        &:active {
+          color: black;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: black;
+        }
+      }
+    }
+  }
+
+}

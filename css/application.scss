@@ -1,10 +1,12 @@
 @import 'settings/color_variables';
 @import 'settings/mixins';
+@import 'settings/z-index_variables';
 
 @import 'components/App';
 @import 'components/KnobsPanel.scss';
 @import 'components/Rack.scss';
 @import 'components/Settings.scss';
+@import 'components/Error.scss';
 
 html {
   @include sizing(100%, 100%);

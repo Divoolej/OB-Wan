@@ -1,11 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import hash from 'object-hash'
 
 const ErrorsComponent = ({ errors, onDismissErrors }) => {
   if (errors && errors.length > 0) {
     return(
       <div className="Error">
-        {errors}
+        <div className="overlay"></div>
+        <div className="popup">
+          <span className="header">Error:</span>
+          <ul className="list">
+            {errors.map(error => (
+              <li key={hash(error)} className="entry">{error.message}</li>
+            ))}
+          </ul>
+          <div className="row">
+            <button className="dismiss-button" onClick={onDismissErrors}>Close</button>
+          </div>
+        </div>
       </div>
     )
   }

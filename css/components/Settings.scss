@@ -1,12 +1,12 @@
-$Settings_border-size: 8px;
-$Settings_border-color: $color-gray;
+$Settings_border-width: 8px;
+$Settings_border-color: $color-light-gray;
 
 .Settings {
   display: inline-flex;
-  width: 240px - 2 * $Settings_border-size;
-  height: 140px - 2 * $Settings_border-size;
+  width: 240px - 2 * $Settings_border-width;
+  height: 140px - 2 * $Settings_border-width;
   vertical-align: top;
-  border: $Settings_border-size solid $Settings_border-color;
+  border: $Settings_border-width solid $Settings_border-color;
 
   .row {
     display: inline-flex;
@@ -18,25 +18,6 @@ $Settings_border-color: $color-gray;
 
     .label {
       margin-right: 2px;
-    }
-
-    .Select {
-      display: inline-flex;
-      width: 110px;
-      height: 23px;
-      margin-left: 2px;
-
-      &-control {
-        height: 23px;
-      }
-
-      &-value {
-        line-height: 23px;
-      }
-
-      &-input {
-        height: 23px;
-      }
     }
   }
 }

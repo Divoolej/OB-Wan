@@ -1,11 +1,11 @@
-$App_border-size: 8px;
+$App_border-width: 8px;
 $App_border-color: $color-brown;
 
 .App {
-  width: 800px - 2 * $App_border-size;
-  height: 600px - 2 * $App_border-size;
+  width: 800px - 2 * $App_border-width;
+  height: 600px - 2 * $App_border-width;
   font-family: $ff-pokemon;
   font-size: $fs-regular;
   background-color: $color-beige;
-  border: $App_border-size solid $App_border-color;
+  border: $App_border-width solid $App_border-color;
 }

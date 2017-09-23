@@ -1,4 +1,4 @@
-$Error_border-size: 8px;
+$Error_border-width: 8px;
 $Error_border-color: $color-red;
 $Error_overlay-color: $color-black;
 $Error_background-color: $color-white;
@@ -30,7 +30,7 @@ $Error_background-color: $color-white;
     height: 130px;
     padding: 20px;
     background-color: $Error_background-color;
-    border: $Error_border-size solid $Error_border-color;
+    border: $Error_border-width solid $Error_border-color;
     border-radius: 10px;
 
     .list {

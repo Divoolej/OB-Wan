@@ -27,9 +27,9 @@ export const changeInstrument = (instrumentName) => {
   }
 }
 
-export const noteOn = (note) => ({
+export const noteOn = (note, velocity = 1) => ({
   type: 'INSTRUMENT_NOTE_ON',
-  payload: { note },
+  payload: { note, velocity },
 })
 
 export const noteOff = (note) => ({

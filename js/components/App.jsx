@@ -5,6 +5,7 @@ import KnobsPanel from './KnobsPanel.jsx'
 import Rack from './Rack.jsx'
 import Errors from './Errors.jsx'
 import KeyboardController from './KeyboardController.jsx'
+import MIDIController from './MIDIController.jsx'
 
 const App = () => (
   <div className="App">
@@ -13,6 +14,7 @@ const App = () => (
     <Rack />
     <Errors />
     <KeyboardController />
+    <MIDIController />
   </div>
 )
 

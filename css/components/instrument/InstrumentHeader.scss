@@ -1,40 +1,14 @@
 $InstrumentHeader_button-border-color: $color-brown;
 $InstrumentHeader_button-border-width: 2px;
-$InstrumentHeader_enable-button-color: $color-dark-gray;
-$InstrumentHeader_disable-button-color: $color-yellow;
 
 .InstrumentHeader {
-  .button {
-    width: 16px;
-    height: 16px;
-    border: $InstrumentHeader_button-border-width solid $InstrumentHeader_button-border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -2px;
+  padding: 0 2px;
 
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .enable-button {
-    background-color: $InstrumentHeader_enable-button-color;
-  }
-
-  .disable-button {
-    background-color: $InstrumentHeader_disable-button-color;
-  }
-
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -2px;
-    padding: 0 2px;
-
-    .label {
-      margin-right: 2px;
-    }
+  .label {
+    margin-right: 2px;
   }
 }

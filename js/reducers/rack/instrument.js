@@ -1,7 +1,6 @@
 import Tone from 'tone'
 
 const initialState = {
-  enabled: true,
   type: 'PolySynth',
   polySynthVoice: 'Synth',
   synth: new Tone.PolySynth().toMaster(),
@@ -10,11 +9,6 @@ const initialState = {
 
 const instrument = (state = initialState, action) => {
   switch (action.type) {
-    case 'INSTRUMENT_TOGGLE_ENABLED':
-      return {
-        ...state,
-        enabled: !state.enabled,
-      }
     case 'INSTRUMENT_CHANGE_INSTRUMENT_TYPE':
       if (state.type === action.payload.type) { return state }
       state.synth.dispose()
@@ -35,7 +29,6 @@ const instrument = (state = initialState, action) => {
         synth: action.payload.synth,
       }
     case 'INSTRUMENT_NOTE_ON':
-      if (!state.enabled) { return state }
       state.synth.triggerAttack(action.payload.note, '+0.025', action.payload.velocity || 1)
       return {
         ...state,

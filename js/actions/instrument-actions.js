@@ -1,10 +1,5 @@
 import Tone from 'tone'
 
-export const toggleInstrumentEnabled = () => ({
-  type: 'INSTRUMENT_TOGGLE_ENABLED',
-  payload: {},
-})
-
 export const changeInstrument = (instrumentName) => {
   let synth = null
   let polySynthVoice = null

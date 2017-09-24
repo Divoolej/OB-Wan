@@ -12,6 +12,7 @@
 @import 'components/instrument/InstrumentHeader';
 @import 'components/instrument/Instrument';
 @import 'components/instrument/Synth';
+@import 'components/instrument/PolySynthSettings';
 
 html {
   @include sizing(100%, 100%);

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const { ipcRenderer } = require('electron');
+
 class KeyboardControllerComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -19,6 +21,7 @@ class KeyboardControllerComponent extends React.Component {
       if (note) {
         this.props.noteOn(note)
       }
+      ipcRenderer.send('ping', 'test')
     }
   }
 

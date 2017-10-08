@@ -6,15 +6,24 @@ const { default: installExtension, REDUX_DEVTOOLS } = require('electron-devtools
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win, synth
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 1280, height: 622})
+  win = new BrowserWindow({ width: 1280, height: 622 })
+  // And the Synth window (hidden)
+  synth = new BrowserWindow()
 
-  // and load the index.html of the app.
+  // Load the index.html of the app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+
+  // Load the synth.html
+  synth.loadURL(url.format({
+    pathname: path.join(__dirname, 'synth.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -33,6 +42,10 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null
+  })
+
+  synth.on('closed', () => {
+    synth = null
   })
 }
 

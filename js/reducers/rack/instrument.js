@@ -1,10 +1,8 @@
-import Tone from 'tone'
-
 const initialState = {
   type: 'PolySynth',
   polySynthVoice: 'Synth',
   polyphony: 4,
-  synth: new Tone.PolySynth().toMaster(),
+  synth: null, //new Tone.PolySynth().toMaster(),
   lastPlayedNote: null,
 }
 
@@ -36,10 +34,10 @@ const instrument = (state = initialState, action) => {
       let synth = null
       switch (state.polySynthVoice) {
         case 'Synth':
-          synth = new Tone.PolySynth(action.payload.polyphony, Tone.Synth).toMaster()
+          // synth = new Tone.PolySynth(action.payload.polyphony, Tone.Synth).toMaster()
           break
         case 'MonoSynth':
-          synth = new Tone.PolySynth(action.payload.polyphony, Tone.MonoSynth).toMaster()
+          // synth = new Tone.PolySynth(action.payload.polyphony, Tone.MonoSynth).toMaster()
           break
       }
       return {

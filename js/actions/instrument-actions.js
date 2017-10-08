@@ -1,20 +1,18 @@
-import Tone from 'tone'
-
 export const changeInstrument = (instrumentName) => {
   let synth = null
   let polySynthVoice = null
   let polyphony = 1
   switch (instrumentName) {
     case 'Synth':
-      synth = new Tone.Synth().toMaster()
+      // synth = new Tone.Synth().toMaster()
       break
     case 'PolySynth':
-      synth = new Tone.PolySynth(4).toMaster()
+      // synth = new Tone.PolySynth(4).toMaster()
       polySynthVoice = 'Synth'
       polyphony = 4
       break
     case 'MonoSynth':
-      synth = new Tone.MonoSynth({ volume: -20 }).toMaster()
+      // synth = new Tone.MonoSynth({ volume: -20 }).toMaster()
       break
   }
   return {
@@ -32,10 +30,10 @@ export const changePolySynthVoice = (voice) => {
   let synth = null
   switch (voice) {
     case 'Synth':
-      synth = new Tone.PolySynth().toMaster()
+      // synth = new Tone.PolySynth().toMaster()
       break
     case 'MonoSynth':
-      synth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster()
+      // synth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster()
       synth.set({ volume: -20 })
       break
   }

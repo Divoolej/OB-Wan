@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { ipcRenderer } from 'electron';
 
 import reducers from './reducers'
 import App from './components/App.jsx'
@@ -13,6 +14,13 @@ let store = createStore(
   reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
+
+ipcRenderer.send('synth', {
+  type: 'loadInstrument',
+  payload: {
+    instrument: store.getState().rack.instrument
+  }
+})
 
 ReactDOM.render(
   <Provider store={store}>

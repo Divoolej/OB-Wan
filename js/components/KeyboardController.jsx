@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-const { ipcRenderer } = require('electron');
+import { ipcRenderer } from 'electron';
 
 class KeyboardControllerComponent extends React.Component {
   constructor(props) {
@@ -20,8 +19,8 @@ class KeyboardControllerComponent extends React.Component {
       const note = this.noteMap[event.key]
       if (note) {
         this.props.noteOn(note)
+        ipcRenderer.send('synth', { type: 'noteOn', payload: { note: note } })
       }
-      ipcRenderer.send('synth', { type: 'noteOn', payload: { note: note } })
     }
   }
 
@@ -30,6 +29,7 @@ class KeyboardControllerComponent extends React.Component {
     const note = this.noteMap[event.key]
     if (note) {
       this.props.noteOff(note)
+      ipcRenderer.send('synth', { type: 'noteOff', payload: { note: note } })
     }
   }
 

@@ -1,5 +1,4 @@
 export const changeInstrument = (instrumentName) => {
-  let synth = null
   let polySynthVoice = null
   let polyphony = 1
   switch (instrumentName) {
@@ -7,7 +6,6 @@ export const changeInstrument = (instrumentName) => {
       // synth = new Tone.Synth().toMaster()
       break
     case 'PolySynth':
-      // synth = new Tone.PolySynth(4).toMaster()
       polySynthVoice = 'Synth'
       polyphony = 4
       break
@@ -21,27 +19,24 @@ export const changeInstrument = (instrumentName) => {
       type: instrumentName,
       polySynthVoice,
       polyphony,
-      synth,
     }
   }
 }
 
 export const changePolySynthVoice = (voice) => {
-  let synth = null
   switch (voice) {
     case 'Synth':
       // synth = new Tone.PolySynth().toMaster()
       break
     case 'MonoSynth':
       // synth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster()
-      synth.set({ volume: -20 })
+      // synth.set({ volume: -20 })
       break
   }
   return {
     type: 'INSTRUMENT_CHANGE_POLY_SYNTH_VOICE',
     payload: {
       polySynthVoice: voice,
-      synth: synth,
     }
   }
 }

@@ -10,7 +10,7 @@ let win, synth
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 1280, height: 622 })
+  win = new BrowserWindow({ width: 1280, height: 778 })
   // And the Synth window (hidden)
   synth = new BrowserWindow()
 

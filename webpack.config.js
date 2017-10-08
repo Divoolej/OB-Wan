@@ -8,6 +8,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
   entry: './js/index.jsx',
+  target: 'electron-renderer',
   output: {
     path: path.resolve('build'),
     filename: 'renderer_bundle.js',

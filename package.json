@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron .",
     "build": "webpack",
-    "watch": "NODE_ENV=development webpack-dev-server --inline --watch --hot js/index.jsx"
+    "watch": "NODE_ENV=development webpack-dev-server --inline --watch --hot js/ui.jsx js/synth.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -21,7 +21,7 @@ class KeyboardControllerComponent extends React.Component {
       if (note) {
         this.props.noteOn(note)
       }
-      ipcRenderer.send('synth', { type: 'test', payload: 'sdgsdg' })
+      ipcRenderer.send('synth', { type: 'noteOn', payload: { note: note } })
     }
   }
 

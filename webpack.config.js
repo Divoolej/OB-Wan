@@ -2,16 +2,19 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
-  filename: "renderer_bundle.css",
+  filename: "ui_bundle.css",
   disable: process.env.NODE_ENV === "development",
 });
 
 module.exports = {
-  entry: './js/index.jsx',
+  entry: {
+    ui: './js/ui.jsx',
+    synth: './js/synth.js',
+  },
   target: 'electron-renderer',
   output: {
     path: path.resolve('build'),
-    filename: 'renderer_bundle.js',
+    filename: '[name]_bundle.js',
     publicPath: 'http://localhost:8080/build/',
   },
   module: {

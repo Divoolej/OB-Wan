@@ -16,7 +16,7 @@ function createWindow () {
 
   // Load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'ui.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -74,6 +74,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-ipcMain.on('ping', (_event, arguments) => {
-  synth.webContents.send('ping', arguments)
+// 'synth' message acts as a proxy connecting the UI with the Synth window.
+ipcMain.on('synth', (_event, { type, payload }) => {
+  synth.webContents.send(type, payload)
 })

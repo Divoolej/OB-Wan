@@ -14,16 +14,16 @@ function createWindow () {
   // And the Synth window (hidden)
   synth = new BrowserWindow(/*{ show: false }*/)
 
-  // Load the index.html of the app.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'ui.html'),
+  // Load the synth.html
+  synth.loadURL(url.format({
+    pathname: path.join(__dirname, 'synth.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Load the synth.html
-  synth.loadURL(url.format({
-    pathname: path.join(__dirname, 'synth.html'),
+  // Load the index.html of the app.
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'ui.html'),
     protocol: 'file:',
     slashes: true
   }))

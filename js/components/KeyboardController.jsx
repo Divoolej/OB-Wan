@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { ipcRenderer } from 'electron';
 
-class KeyboardControllerComponent extends React.Component {
+class KeyboardController extends React.Component {
   constructor(props) {
     super(props)
     this.pressedKeys = {}
@@ -18,7 +17,6 @@ class KeyboardControllerComponent extends React.Component {
       this.pressedKeys[event.key] = true
       const note = this.noteMap[event.key]
       if (note) {
-        this.props.noteOn(note)
         ipcRenderer.send('synth', { type: 'noteOn', payload: { note: note } })
       }
     }
@@ -28,7 +26,6 @@ class KeyboardControllerComponent extends React.Component {
     this.pressedKeys[event.key] = false
     const note = this.noteMap[event.key]
     if (note) {
-      this.props.noteOff(note)
       ipcRenderer.send('synth', { type: 'noteOff', payload: { note: note } })
     }
   }
@@ -41,16 +38,4 @@ class KeyboardControllerComponent extends React.Component {
   render() { return null }
 }
 
-KeyboardControllerComponent.propTypes = {
-  noteOn: PropTypes.func.isRequired,
-  noteOff: PropTypes.func.isRequired,
-}
-
-import { connect } from 'react-redux'
-import { noteOn, noteOff } from '../actions/instrument-actions.js'
-
-const actions = { noteOn, noteOff }
-
-const KeyboardControllerContainer = connect(null, actions)(KeyboardControllerComponent)
-
-export default KeyboardControllerContainer
+export default KeyboardController

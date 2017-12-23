@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ipcRenderer } from 'electron';
 
 class MIDIControllerComponent extends React.Component {
   componentDidUpdate(prevProps, _prevState) {
@@ -16,12 +17,12 @@ class MIDIControllerComponent extends React.Component {
   onNoteOn = (event) => {
     const note = event.note.name + event.note.octave
     const velocity = event.rawVelocity / 127.0
-    this.props.noteOn(note /*, velocity */) // DISABLE VELOCITY FOR NOW BECAUSE MY MIDI KEYBOARD SUCKS
+    ipcRenderer.send('synth', { type: 'noteOn', payload: { note, velocity } })
   }
 
   onNoteOff = (event) => {
     const note = event.note.name + event.note.octave
-    this.props.noteOff(note)
+    ipcRenderer.send('synth', { type: 'noteOff', payload: { note: note } })
   }
 
   render() { return null }
@@ -29,19 +30,14 @@ class MIDIControllerComponent extends React.Component {
 
 MIDIControllerComponent.propTypes = {
   midiInput: PropTypes.object,
-  noteOn: PropTypes.func.isRequired,
-  noteOff: PropTypes.func.isRequired,
 }
 
 import { connect } from 'react-redux'
-import { noteOn, noteOff } from '../actions/instrument-actions.js'
 
 const mapStateToProps = (state) => ({
   midiInput: state.settings.selectedMidiInput,
 })
 
-const actions = { noteOn, noteOff }
-
-const MIDIControllerContainer = connect(mapStateToProps, actions)(MIDIControllerComponent)
+const MIDIControllerContainer = connect(mapStateToProps, null)(MIDIControllerComponent)
 
 export default MIDIControllerContainer

@@ -12,7 +12,7 @@ function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 1280, height: 778 })
   // And the Synth window (hidden)
-  synth = new BrowserWindow()
+  synth = new BrowserWindow(/*{ show: false }*/)
 
   // Load the index.html of the app.
   win.loadURL(url.format({

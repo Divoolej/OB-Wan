@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 
 import PolySynthSettings from './PolySynthSettings.jsx'
 import Synth from './Synth.jsx'
+import MonoSynth from './MonoSynth.jsx'
+
+import { SYNTH, MONO_SYNTH } from '../../constants.js'
 
 const renderInnerSynthesizer = (selectedVoice) => {
   switch (selectedVoice) {
-    case 'Synth':
+    case SYNTH:
       return <Synth />
+    case MONO_SYNTH:
+      return <MonoSynth />
   }
 }
 

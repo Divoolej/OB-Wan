@@ -1,8 +1,9 @@
+import { POLY_SYNTH, SYNTH } from '../../constants.js'
+
 const initialState = {
-  type: 'PolySynth',
-  polySynthVoice: 'Synth',
+  type: POLY_SYNTH,
+  polySynthVoice: SYNTH,
   polyphony: 4,
-  lastPlayedNote: null,
 }
 
 const instrument = (state = initialState, action) => {
@@ -11,8 +12,8 @@ const instrument = (state = initialState, action) => {
       return {
         ...state,
         type: action.payload.type,
-        polySynthVoice: action.payload.polySynthVoice,
-        polyphony: action.payload.polyphony,
+        polySynthVoice: action.payload.polySynthVoice || state.polySynthVoice,
+        polyphony: action.payload.polyphony || state.polyphony,
       }
     case 'INSTRUMENT_CHANGE_POLY_SYNTH_VOICE':
       return {

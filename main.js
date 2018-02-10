@@ -75,6 +75,6 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 
 // 'synth' message acts as a proxy connecting the UI with the Synth window.
-ipcMain.on('synth', (_event, { type, payload }) => {
+ipcMain.on('synth', (_event, { type, payload }) => (
   synth.webContents.send(type, payload)
-})
+))

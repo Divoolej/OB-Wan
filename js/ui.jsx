@@ -15,13 +15,6 @@ let store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-ipcRenderer.send('synth', {
-  type: 'loadInstrument',
-  payload: {
-    instrument: store.getState().rack.instrument
-  }
-})
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

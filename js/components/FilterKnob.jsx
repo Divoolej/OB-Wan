@@ -4,14 +4,14 @@ import { ipcRenderer } from 'electron'
 
 import { COLOR_BROWN, COLOR_GREEN } from '../constants.js'
 
-const modulate = (parameters) => {
+const changeFilterSettings = (parameters) => {
   ipcRenderer.send('synth', {
-    type: 'modulation',
+    type: 'changeFilterSettings',
     payload: parameters,
   })
 }
 
-export default class ModulationKnob extends React.Component {
+export default class FilterKnob extends React.Component {
   state = {
     value: 0,
   }
@@ -21,15 +21,16 @@ export default class ModulationKnob extends React.Component {
   }
 
   handleChange = (newValue) => {
-    if (this.state.value !== newValue) {
-      modulate({ [this.props.parameter]: newValue })
+    const roundedValue = Math.round(newValue)
+    if (this.state.value !== roundedValue) {
+      changeFilterSettings({ [this.props.parameter]: roundedValue })
     }
-    this.setState({ value: newValue })
+    this.setState({ value: roundedValue })
   }
 
   render() {
   	return (
-      <div className="ModulationKnob">
+      <div className="FilterKnob">
         <span className="label">{this.props.label}</span>
         <Knob
           value={this.state.value}
@@ -39,9 +40,9 @@ export default class ModulationKnob extends React.Component {
           angleOffset={45}
           width={75}
           height={75}
-          inputColor={COLOR_BROWN}
-          fgColor={COLOR_BROWN}
-          bgColor={COLOR_GREEN}
+          inputColor={COLOR_GREEN}
+          fgColor={COLOR_GREEN}
+          bgColor={COLOR_BROWN}
           onChange={this.handleChange}
           onChangeEnd={() => null} 
           { ...this.props.knobProps }

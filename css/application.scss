@@ -6,13 +6,11 @@
 @import 'components/Select';
 @import 'components/App';
 @import 'components/KnobsPanel';
+@import 'components/ModulationKnob';
+@import 'components/FilterKnob';
 @import 'components/Rack';
 @import 'components/Settings';
 @import 'components/Error';
-@import 'components/instrument/InstrumentHeader';
-@import 'components/instrument/Instrument';
-@import 'components/instrument/Synth';
-@import 'components/instrument/PolySynthSettings';
 
 html {
   @include sizing(100%, 100%);

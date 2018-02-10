@@ -11,5 +11,9 @@ ipcRenderer.on('modulation', (_event, parameters) => (
   instrumentInstance.modulate(parameters)
 ))
 
+ipcRenderer.on('changeFilterSettings', (_event, parameters) => (
+  instrumentInstance.changeFilterSettings(parameters)
+))
+
 ipcRenderer.on('noteOff', (_event, { note }) => instrumentInstance.onNoteOff(note))
 

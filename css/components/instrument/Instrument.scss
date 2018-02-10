@@ -1,7 +1,0 @@
-$Instrument_border-width: 8px;
-$Instrument_border-color: $color-light-gray;
-
-.Instrument {
-  width: 240px - 2 * $Instrument_border-width;
-  border-right: $Instrument_border-width solid $Instrument_border-color;
-}

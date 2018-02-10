@@ -9,7 +9,7 @@ import MIDIController from './MIDIController.jsx'
 const App = () => (
   <div className="App">
     <Settings />
-    <KnobsPanel count={8} />
+    <KnobsPanel />
     <Errors />
     <KeyboardController />
     <MIDIController />

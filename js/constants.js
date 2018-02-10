@@ -1,0 +1,1 @@
+export const SYNTH_POLYPHONY = 8

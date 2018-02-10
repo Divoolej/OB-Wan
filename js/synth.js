@@ -7,5 +7,9 @@ ipcRenderer.on('noteOn', (_event, { note, velocity }) => (
   instrumentInstance.onNoteOn(note, velocity)
 ))
 
+ipcRenderer.on('modulation', (_event, { parameters }) => (
+  instrumentInstance.modulate(parameters)
+))
+
 ipcRenderer.on('noteOff', (_event, { note }) => instrumentInstance.onNoteOff(note))
 

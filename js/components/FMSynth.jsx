@@ -3,41 +3,53 @@ import React from 'react'
 import ModulationKnob from './ModulationKnob.jsx'
 import FilterKnob from './FilterKnob.jsx'
 
-const KnobsPanel = () => {
+const FMSynth = () => {
   return(
     <div className="KnobsPanel">
     	<ModulationKnob
+        target="fmSynth"
         parameter="modulationIndex"
-        label="Modulation Index"
+        label="Mod. Index"
         startingValue={10}
         knobProps={{ step: 0.1, max: 50 }} 
       />
-      <ModulationKnob 
+      <ModulationKnob
+        target="fmSynth"
         parameter="harmonicity"
         label="Harmonicity"
         startingValue={3}
         knobProps={{ step: 0.1, min: 0.1, max: 25 }} 
       />
-      <ModulationKnob 
+      <ModulationKnob
+        target="fmSynth" 
         parameter="detune"
         label="Detune"
         startingValue={0}
-        knobProps={{ step: 1, max: 1000 }} 
+        knobProps={{ step: 1, min: -100, max: 100 }} 
       />
-      <ModulationKnob 
+      <ModulationKnob
+        target="fmSynth" 
         parameter="volume"
         label="Volume"
         startingValue={0}
         knobProps={{ step: 1, min: -36, max: 36 }} 
       />
-      <FilterKnob 
+      <FilterKnob
+        target="fmSynth" 
         parameter="frequency"
         label="Cutoff freq."
         startingValue={0}
         knobProps={{ step: 1.1, min: 20, max: 20000, log: true }} 
       />
+      <FilterKnob
+        target="fmSynth" 
+        parameter="Q"
+        label="Resonance"
+        startingValue={0}
+        knobProps={{ step: 1, min: 0, max: 50 }} 
+      />
     </div>
   )
 }
 
-export default KnobsPanel
+export default FMSynth

@@ -1,19 +1,33 @@
 import { ipcRenderer } from 'electron'
 import FMSynth from './synth/fm_synth.js'
+import DuoSynth from './synth/duo_synth.js'
+import { FM_SYNTH, DUO_SYNTH } from './constants.js'
 
-const instrumentInstance = new FMSynth();
+const fmSynthInstance = new FMSynth()
+const duoSynthInstance = new DuoSynth()
 
-ipcRenderer.on('noteOn', (_event, { note, velocity }) => (
-  instrumentInstance.onNoteOn(note, velocity)
+ipcRenderer.on('noteOn', (_event, { note, velocity }) => {
+  fmSynthInstance.onNoteOn(note, velocity)
+  duoSynthInstance.onNoteOn(note, velocity)
+})
+
+ipcRenderer.on('modulation', (_event, { synth, parameters }) => {
+  switch (synth) {
+    case FM_SYNTH:
+      fmSynthInstance.modulate(parameters)
+      break
+    case DUO_SYNTH:
+      duoSynthInstance.modulate(parameters)
+      break
+  }
+})
+
+ipcRenderer.on('changeFilterSettings', (_event, { _synth, parameters }) => (
+  fmSynthInstance.changeFilterSettings(parameters)
 ))
 
-ipcRenderer.on('modulation', (_event, parameters) => (
-  instrumentInstance.modulate(parameters)
-))
-
-ipcRenderer.on('changeFilterSettings', (_event, parameters) => (
-  instrumentInstance.changeFilterSettings(parameters)
-))
-
-ipcRenderer.on('noteOff', (_event, { note }) => instrumentInstance.onNoteOff(note))
+ipcRenderer.on('noteOff', (_event, { note }) => {
+  fmSynthInstance.onNoteOff(note)
+  duoSynthInstance.onNoteOff(note)
+})
 

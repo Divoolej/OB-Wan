@@ -7,10 +7,6 @@ export default class Instrument {
       polyphony: SYNTH_POLYPHONY,
       voice: synthType,
     })
-    this.filter = new Tone.Filter({
-      frequency: 20000,
-    }).toMaster()
-    this.synth.connect(this.filter)
   }
 
   onNoteOn(note, velocity) {
@@ -22,10 +18,7 @@ export default class Instrument {
   }
 
   modulate(parameters) {
+    if (parameters.volume === -36) { parameters.volume = -Infinity }
     this.synth.set(parameters)
-  }
-
-  changeFilterSettings(parameters) {
-    this.filter.set(parameters)
   }
 }

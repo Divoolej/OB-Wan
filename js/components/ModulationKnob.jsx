@@ -4,10 +4,10 @@ import { ipcRenderer } from 'electron'
 
 import { COLOR_BROWN, COLOR_GREEN } from '../constants.js'
 
-const modulate = (parameters) => {
+const modulate = (synth, parameters) => {
   ipcRenderer.send('synth', {
     type: 'modulation',
-    payload: parameters,
+    payload: { synth, parameters },
   })
 }
 
@@ -22,7 +22,7 @@ export default class ModulationKnob extends React.Component {
 
   handleChange = (newValue) => {
     if (this.state.value !== newValue) {
-      modulate({ [this.props.parameter]: newValue })
+      modulate(this.props.target, { [this.props.parameter]: newValue })
     }
     this.setState({ value: newValue })
   }
@@ -37,8 +37,8 @@ export default class ModulationKnob extends React.Component {
           step={1}
           angleArc={270}
           angleOffset={45}
-          width={75}
-          height={75}
+          width={65}
+          height={65}
           inputColor={COLOR_BROWN}
           fgColor={COLOR_BROWN}
           bgColor={COLOR_GREEN}

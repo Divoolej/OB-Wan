@@ -1,7 +1,8 @@
 import React from 'react'
 
 import Settings from './Settings.jsx'
-import KnobsPanel from './KnobsPanel.jsx'
+import FMSynth from './FMSynth.jsx'
+import DuoSynth from './DuoSynth.jsx'
 import Errors from './Errors.jsx'
 import KeyboardController from './KeyboardController.jsx'
 import MIDIController from './MIDIController.jsx'
@@ -9,7 +10,8 @@ import MIDIController from './MIDIController.jsx'
 const App = () => (
   <div className="App">
     <Settings />
-    <KnobsPanel />
+    <FMSynth />
+    <DuoSynth />
     <Errors />
     <KeyboardController />
     <MIDIController />

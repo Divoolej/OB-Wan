@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ModulationKnob from './ModulationKnob.jsx'
-import FilterKnob from './FilterKnob.jsx'
+import ModulationKnob from '../knobs/ModulationKnob.jsx'
+import FilterKnob from '../knobs/FilterKnob.jsx'
 
 const FMSynth = () => {
   return(

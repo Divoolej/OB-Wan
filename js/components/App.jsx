@@ -1,8 +1,8 @@
 import React from 'react'
 
 import Settings from './Settings.jsx'
-import FMSynth from './FMSynth.jsx'
-import DuoSynth from './DuoSynth.jsx'
+import FMSynth from './synths/FMSynth.jsx'
+import DuoSynth from './synths/DuoSynth.jsx'
 import Errors from './Errors.jsx'
 import KeyboardController from './KeyboardController.jsx'
 import MIDIController from './MIDIController.jsx'

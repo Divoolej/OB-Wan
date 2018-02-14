@@ -4,25 +4,30 @@ import { ipcRenderer } from 'electron'
 import { COLOR_BROWN, COLOR_GREEN } from '../../constants.js'
 import Knob from './Knob.jsx'
 
-const modulate = (synth, parameters) => {
+const modulateVoice = (voice, parameters) => {
   ipcRenderer.send('synth', {
     type: 'modulation',
-    payload: { synth, parameters },
+    payload: { 
+      synth: 'duoSynth', 
+      parameters: {
+        [voice]: parameters,
+      }
+    },
   })
 }
 
-const ModulationKnob = ({ label, roundValue, ...props }) => (
-  <div className="ModulationKnob">
+const VoiceModulationKnob = ({ label, voice, roundValue, ...props }) => (
+  <div className="VoiceModulationKnob">
     <span className="label">{label}</span>
     <Knob
       inputColor={COLOR_BROWN}
       fgColor={COLOR_BROWN}
       bgColor={COLOR_GREEN}
       roundValue={roundValue || false}
-      handler={modulate}
+      handler={(_target, parameters) => modulateVoice(voice, parameters)}
       { ...props }
     />
   </div>
 )
 
-export default ModulationKnob
+export default VoiceModulationKnob

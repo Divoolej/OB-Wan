@@ -38,7 +38,7 @@ const FMSynth = () => {
         target="fmSynth" 
         parameter="frequency"
         label="Cutoff freq."
-        startingValue={0}
+        startingValue={2000}
         knobProps={{ step: 1.1, min: 20, max: 20000, log: true }} 
       />
       <FilterKnob

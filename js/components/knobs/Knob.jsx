@@ -3,11 +3,12 @@ import ReactCanvasKnob from 'react-canvas-knob'
 
 export default class FilterKnob extends React.Component {
   state = {
-    value: 0,
+    value: -1,
   }
 
   componentDidMount() {
     this.setState({ value: this.props.startingValue })
+    this.handleChange(this.props.startingValue)
   }
 
   handleChange = (newValue) => {

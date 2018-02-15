@@ -1,14 +1,14 @@
 import React from 'react'
 import { ipcRenderer } from 'electron'
 
-import { COLOR_BROWN, COLOR_GREEN } from '../../constants.js'
+import { COLOR_BROWN, COLOR_GREEN, DUO_SYNTH } from '../../constants.js'
 import Knob from './Knob.jsx'
 
 const modulateVoice = (voice, parameters) => {
   ipcRenderer.send('synth', {
     type: 'modulation',
     payload: { 
-      synth: 'duoSynth', 
+      synth: DUO_SYNTH, 
       parameters: {
         [voice]: parameters,
       }

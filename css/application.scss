@@ -5,8 +5,10 @@
 
 @import 'components/Select';
 @import 'components/App';
-@import 'components/KnobsPanel';
+@import 'components/synths/FMSynth';
+@import 'components/synths/DuoSynth';
 @import 'components/knobs/ModulationKnob';
+@import 'components/knobs/VoiceModulationKnob';
 @import 'components/knobs/FilterKnob';
 @import 'components/Rack';
 @import 'components/Settings';

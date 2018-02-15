@@ -5,7 +5,7 @@ import FilterKnob from '../knobs/FilterKnob.jsx'
 
 const FMSynth = () => {
   return(
-    <div className="KnobsPanel">
+    <div className="FMSynth">
     	<ModulationKnob
         target="fmSynth"
         parameter="modulationIndex"

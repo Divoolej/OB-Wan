@@ -1,0 +1,12 @@
+$FMSynth_border-width: 8px;
+$FMSynth_border-color: $color-light-gray;
+
+.FMSynth {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 552px - 2 * $FMSynth_border-width;
+  height: 140px - 2 * $FMSynth_border-width;
+  border: $FMSynth_border-width solid $FMSynth_border-color;
+  border-left: 0;
+}

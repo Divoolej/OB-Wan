@@ -1,0 +1,12 @@
+$DuoSynth_border-width: 8px;
+$DuoSynth_border-color: $color-light-gray;
+
+.DuoSynth {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 792px - 2 * $DuoSynth_border-width;
+  height: 254px - 2 * $DuoSynth_border-width;
+  border: $DuoSynth_border-width solid $DuoSynth_border-color;
+  border-left: 0;
+}

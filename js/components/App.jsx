@@ -1,20 +1,19 @@
 import React from 'react'
 
-import Settings from './Settings.jsx'
-import FMSynth from './synths/FMSynth.jsx'
-import DuoSynth from './synths/DuoSynth.jsx'
-import Errors from './Errors.jsx'
+import Knobs from './Knobs.jsx'
+import Screen from './Screen.jsx'
+import Buttons from './Buttons.jsx'
 import KeyboardController from './KeyboardController.jsx'
-import MIDIController from './MIDIController.jsx'
+import MidiController from './MidiController.jsx'
+
 
 const App = () => (
   <div className="App">
-    <Settings />
-    <FMSynth />
-    <DuoSynth />
-    <Errors />
+    <Knobs />
+    <Screen />
+    <Buttons />
     <KeyboardController />
-    <MIDIController />
+    <MidiController />
   </div>
 )
 

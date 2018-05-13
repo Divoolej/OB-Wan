@@ -2,17 +2,16 @@
 @import 'settings/mixins';
 @import 'settings/z-index_variables';
 @import 'settings/typography';
+@import 'settings/images';
 
-@import 'components/Select';
 @import 'components/App';
-@import 'components/synths/FMSynth';
-@import 'components/synths/DuoSynth';
-@import 'components/knobs/ModulationKnob';
-@import 'components/knobs/VoiceModulationKnob';
-@import 'components/knobs/FilterKnob';
-@import 'components/Rack';
-@import 'components/Settings';
-@import 'components/Error';
+@import 'components/Knobs';
+@import 'components/knobs/VolumeKnob';
+@import 'components/knobs/ParamKnob';
+@import 'components/Screen';
+@import 'components/Buttons';
+@import 'components/buttons/KeyButton';
+@import 'components/buttons/ShiftButton';
 
 html {
   @include sizing(100%, 100%);

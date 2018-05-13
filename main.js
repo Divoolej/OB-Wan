@@ -10,7 +10,7 @@ let win, synth
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 1280, height: 778 })
+  win = new BrowserWindow({ width: 405, height: 757 })
   // And the Synth window (hidden)
   synth = new BrowserWindow(/*{ show: false }*/)
 
@@ -32,9 +32,6 @@ function createWindow () {
   installExtension(REDUX_DEVTOOLS)
     .then((name) => console.log(`Added Extension:  ${name}`))
     .catch((err) => console.log('An error occurred: ', err));
-
-  // Open the DevTools.
-  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {

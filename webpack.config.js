@@ -22,13 +22,17 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.scss$/, use: extractSass.extract({
-        use: ['css-loader', 'sass-loader'],
+        use: ['css-loader', 'sass-loader?sourceMap'],
         fallback: 'style-loader',
       })},
       { test: /\.css$/, use: extractSass.extract({
         use: ['css-loader'],
         fallback: 'style-loader',
       })},
+      {
+        test: /\.svg$/,
+        loader: 'file-loader',
+      },
     ]
   },
   plugins: [

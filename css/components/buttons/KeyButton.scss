@@ -1,0 +1,60 @@
+$KeyButton_left-column-x: 59px;
+$KeyButton_middle-column-x: 152px;
+$KeyButton_right-column-x: 246px;
+$KeyButton_top-row-y: 39px;
+$KeyButton_middle-row-y: 129px;
+$KeyButton_bottom-row-y: 226px;
+
+.KeyButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.KeyButton1 {
+  top: $KeyButton_top-row-y;
+  left: $KeyButton_left-column-x;
+}
+
+.KeyButton2 {
+  top: $KeyButton_top-row-y;
+  left: $KeyButton_middle-column-x;
+}
+
+.KeyButton3 {
+  top: $KeyButton_top-row-y;
+  left: $KeyButton_right-column-x;
+}
+
+.KeyButton4 {
+  top: $KeyButton_middle-row-y;
+  left: $KeyButton_left-column-x;
+}
+
+.KeyButton5 {
+  top: $KeyButton_middle-row-y;
+  left: $KeyButton_middle-column-x;
+}
+
+.KeyButton6 {
+  top: $KeyButton_middle-row-y;
+  left: $KeyButton_right-column-x;
+}
+
+.KeyButton7 {
+  top: $KeyButton_bottom-row-y;
+  left: $KeyButton_left-column-x;
+}
+
+.KeyButton8 {
+  top: $KeyButton_bottom-row-y;
+  left: $KeyButton_middle-column-x;
+}
+
+.KeyButton9 {
+  top: $KeyButton_bottom-row-y;
+  left: $KeyButton_right-column-x;
+}

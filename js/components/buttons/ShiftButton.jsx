@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const ShiftButton = ({ isPressed }) =>
   <div className="ShiftButton">
-    <img src="svg/ShiftButton.svg" />
+    <img src={`svg/ShiftButton${isPressed ? 'Pressed' : ''}.svg`} />
   </div>
 
 ShiftButton.propTypes = {

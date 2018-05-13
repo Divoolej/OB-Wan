@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
+import { KNOB_SPEED } from '../../constants.js'
+
 class ParamKnob extends Component {
   state = {
     angle: 0
   }
 
   handleChange = (event) => {
-    const newAngle = (this.state.angle - event.deltaY / 4.0) % 360
+    const newAngle = (this.state.angle - event.deltaY * KNOB_SPEED) % 360
     this.setState({ angle: newAngle })
   }
 

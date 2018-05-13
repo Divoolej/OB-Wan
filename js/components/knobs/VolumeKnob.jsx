@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import VolumeKnobSVG from '../../../svg/VolumeKnob.svg'
+import { KNOB_SPEED } from '../../constants.js'
 
 const VOLUME_KNOB_ANGLE_OFFSET = -135;
 const VOLUME_KNOB_ANGLE_RANGE = 270;
@@ -24,7 +24,7 @@ class VolumeKnob extends Component {
       <div className="VolumeKnob">
         <img
           style={{ transform: `rotate(${angle}deg)` }}
-          src={VolumeKnobSVG}
+          src="svg/VolumeKnob.svg"
           onWheel={this.handleChange}
         />
       </div>

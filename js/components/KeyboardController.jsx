@@ -1,32 +1,34 @@
 import React from 'react'
-import { ipcRenderer } from 'electron';
+import { func } from 'prop-types'
 
-class KeyboardController extends React.Component {
+const BUTTONS_MAP = {
+  q: '1', w: '2', e: '3',
+  a: '4', s: '5', d: '6',
+  z: '7', x: '8', c: '9',
+  ' ': 'shift',
+}
+
+class KeyboardControllerComponent extends React.Component {
   constructor(props) {
     super(props)
-    this.pressedKeys = {}
+    this.buttonsState = {}
     this.setEventListeners()
-    this.noteMap = {
-      a: 'C4', w: 'C#4', s: 'D4', e: 'D#4', d: 'E4', f: 'F4', t: 'F#4', g: 'G4',
-      y: 'G#4', h: 'A4', u: 'A#4', j: 'B4', k: 'C5', o: 'C#5', l: 'D5', p: 'D#5'
-    }
   }
 
   onKeyDown = (event) => {
-    if (this.pressedKeys[event.key] !== true) {
-      this.pressedKeys[event.key] = true
-      const note = this.noteMap[event.key]
-      if (note) {
-        ipcRenderer.send('synth', { type: 'noteOn', payload: { note: note } })
+    if (!!BUTTONS_MAP[event.key]) {
+      // Prevent firing multiple events when the key is being held
+      if (this.buttonsState[event.key] !== true) {
+        this.props.onKeyDown(BUTTONS_MAP[event.key])
+        this.buttonsState[event.key] = true
       }
     }
   }
 
   onKeyUp = (event) => {
-    this.pressedKeys[event.key] = false
-    const note = this.noteMap[event.key]
-    if (note) {
-      ipcRenderer.send('synth', { type: 'noteOff', payload: { note: note } })
+    if (!!BUTTONS_MAP[event.key]) {
+      this.props.onKeyUp(BUTTONS_MAP[event.key])
+      this.buttonsState[event.key] = false
     }
   }
 
@@ -38,4 +40,19 @@ class KeyboardController extends React.Component {
   render() { return null }
 }
 
-export default KeyboardController
+KeyboardControllerComponent.propTypes = {
+  onKeyUp: func.isRequired,
+  onKeyDown: func.isRequired,
+}
+
+import { connect } from 'react-redux'
+import { keyUp, keyDown } from '../actions/keyboard-actions.js'
+
+const actions = {
+  onKeyUp: keyUp,
+  onKeyDown: keyDown,
+}
+
+const KeyboardControllerContainer = connect(null, actions)(KeyboardControllerComponent)
+
+export default KeyboardControllerContainer

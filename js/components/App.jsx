@@ -4,7 +4,6 @@ import Knobs from './Knobs.jsx'
 import Screen from './Screen.jsx'
 import Buttons from './Buttons.jsx'
 import KeyboardController from './KeyboardController.jsx'
-import MidiController from './MidiController.jsx'
 
 
 const App = () => (
@@ -13,7 +12,6 @@ const App = () => (
     <Screen />
     <Buttons />
     <KeyboardController />
-    <MidiController />
   </div>
 )
 

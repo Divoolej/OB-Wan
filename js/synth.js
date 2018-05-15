@@ -1,10 +1,19 @@
 import { ipcRenderer } from 'electron'
+import fs from 'fs'
+import Pd from 'webpd'
+
+var patch
+fs.readFile('patches/sine.pd', (err, data) => {
+  patch = Pd.loadPatch(data.toString())
+  Pd.start()
+})
 
 ipcRenderer.on('noteOn', (_event, { note, velocity }) => {
-  // NOT IMPLEMENTED
+  Pd.send('note', [note])
+  Pd.send('noteOn', [])
 })
 
 ipcRenderer.on('noteOff', (_event, { note }) => {
-  // NOT IMPLEMENTED
+  Pd.send('noteOff', [])
 })
 

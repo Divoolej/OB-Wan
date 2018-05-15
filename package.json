@@ -38,6 +38,7 @@
     "react-select": "^1.0.0-rc.10",
     "redux": "^3.7.2",
     "tone": "^0.11.11",
-    "webmidi": "^2.0.0-rc.8"
+    "webmidi": "^2.0.0-rc.8",
+    "webpd": "^0.4.2"
   }
 }

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import keyboard from './keyboard.js'
+import app from './app.js'
 
-const reducers = combineReducers({ keyboard })
+const reducers = combineReducers({ app })
 
 export default reducers

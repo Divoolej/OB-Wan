@@ -3,10 +3,10 @@ export const BUTTON_UP = 'BUTTON_UP'
 
 export const keyDown = button => ({
   type: BUTTON_DOWN,
-  payload: { button }
+  payload: { button },
 })
 
 export const keyUp = button => ({
   type: BUTTON_UP,
-  payload: { button }
+  payload: { button },
 })

@@ -31,7 +31,7 @@ ButtonsComponent.propTypes = {
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
-  buttonsState: state.keyboard.buttons,
+  buttonsState: state.app.buttons,
 })
 
 const ButtonsContainer = connect(mapStateToProps, null)(ButtonsComponent)

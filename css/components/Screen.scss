@@ -1,3 +1,13 @@
 .Screen {
   height: 178px;
+  font-family: "Courier New";
+  color: #02E148;
+
+  .content {
+    position: relative;
+    top: 15px;
+    font-size: 16px;
+    left: 45px;
+    display: inline-flex;
+  }
 }

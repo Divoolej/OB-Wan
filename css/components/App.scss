@@ -4,8 +4,8 @@ $App_border-color: $color-brown;
 .App {
   width: 1280px - 2 * $App_border-width;
   height: 756px - 2 * $App_border-width;
-  font-family: $ff-pokemon;
-  font-size: $fs-regular;
+  font-family: 'Helvetica'; // $ff-pokemon;
+  font-size: 12px; // $fs-regular;
   background-color: $color-beige;
   border: $App_border-width solid $App_border-color;
 }

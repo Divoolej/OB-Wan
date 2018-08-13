@@ -9,7 +9,6 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
   entry: {
     ui: './js/ui.jsx',
-    synth: './js/synth.js',
   },
   target: 'electron-renderer',
   output: {

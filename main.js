@@ -1,29 +1,22 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const url = require('url')
-
+const dgram = require('dgram');
 const { default: installExtension, REDUX_DEVTOOLS } = require('electron-devtools-installer')
+
+const PURE_DATA_PORT = 2137;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win, synth
+let win
 
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 405, height: 780 })
-  // And the Synth window (hidden)
-  synth = new BrowserWindow(/*{ show: false }*/)
-
-  // Load the synth.html
-  synth.loadURL(url.format({
-    pathname: path.join(__dirname, 'synth.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
 
   // Load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'ui.html'),
+    pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -39,10 +32,6 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null
-  })
-
-  synth.on('closed', () => {
-    synth = null
   })
 }
 
@@ -71,7 +60,16 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-// 'synth' message acts as a proxy connecting the UI with the Synth window.
-ipcMain.on('synth', (_event, { type, payload }) => (
-  synth.webContents.send(type, payload)
-))
+const socket = dgram.createSocket('udp4')
+
+// 'control' message acts as a proxy connecting the UI with Pure Data backend.
+ipcMain.on('control', (_event, { type, payload = '1 4.4 modulator 3.17' }) => {
+  const message = Buffer.from(`${type} ${payload};\n`)
+
+  socket.send(message, PURE_DATA_PORT, 'localhost', (err) => {
+    if (err) {
+      console.log('An error occured while sending a message to PureData: ', err)
+      socket.close()
+    }
+  });
+})

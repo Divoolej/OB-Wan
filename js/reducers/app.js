@@ -1,4 +1,4 @@
-import { ipcRenderer } from 'electron';
+import { sendControl } from '../shared/utils.js'
 
 import { BUTTON_DOWN, BUTTON_UP } from '../actions/keyboard-actions.js'
 import { MOD, CHANGE_VOLUME } from '../actions/knob-actions.js'
@@ -28,7 +28,7 @@ const app = (state = initialState, action) => {
   switch (action.type) {
     case BUTTON_DOWN:
       if (!state.buttons.shift && action.payload.button !== 'shift' && state.keyboardMode === 'play') {
-        ipcRenderer.send('synth', { type: 'noteOn', payload: { note: NOTES[action.payload.button] } })
+        sendControl('NoteOn', NOTES[action.payload.button])
       }
       return {
         ...state,
@@ -52,7 +52,7 @@ const app = (state = initialState, action) => {
               },
             }
         }
-        ipcRenderer.send('synth', { type: 'noteOff', payload: {} })
+        sendControl('NoteOff')
       }
       return {
         ...state,
@@ -67,7 +67,7 @@ const app = (state = initialState, action) => {
         const harmonicity = (state.parameters.harmonicity - (action.payload.delta > 0 ? 0.25 : -0.25)) > 0
           ? state.parameters.harmonicity - (action.payload.delta > 0 ? 0.25 : -0.25)
           : state.parameters.harmonicity
-        ipcRenderer.send('synth', { type: 'modulation', payload: { type: 'harmonicity', value: harmonicity } })
+        sendControl('Harmonicity', harmonicity)
         return {
           ...state,
           parameters: {
@@ -80,7 +80,7 @@ const app = (state = initialState, action) => {
         const modulation = (state.parameters.modulation - action.payload.delta / 2.0).toFixed() > 0
           ? (state.parameters.modulation - action.payload.delta / 2.0).toFixed()
           : state.parameters.modulation
-        ipcRenderer.send('synth', { type: 'modulation', payload: { type: 'modulation', value: modulation } })
+        sendControl('Modulation', modulation)
         return {
           ...state,
           parameters: {
@@ -91,7 +91,7 @@ const app = (state = initialState, action) => {
       }
       else return state
     case CHANGE_VOLUME:
-      ipcRenderer.send('synth', { type: 'modulation', payload: { type: 'master_volume', value: action.payload.volume } })
+      sendControl('MasterVolume', action.payload.volume)
       return {
         ...state,
         parameters: {

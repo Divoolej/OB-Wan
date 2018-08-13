@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { KNOB_SPEED } from '../../constants.js'
+import { KNOB_SPEED } from '../../shared/constants.js'
 
 const throttle = (value) => {
   if (value > 10) { return 10 }

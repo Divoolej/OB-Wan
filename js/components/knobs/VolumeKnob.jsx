@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { KNOB_SPEED } from '../../constants.js'
+import { KNOB_SPEED } from '../../shared/constants.js'
 
 const VOLUME_KNOB_ANGLE_OFFSET = -135;
 const VOLUME_KNOB_ANGLE_RANGE = 270;

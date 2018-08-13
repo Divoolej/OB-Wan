@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { ipcRenderer } from 'electron'
 
 import reducers from './reducers'
 import App from './components/App.jsx'
